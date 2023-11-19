@@ -1,0 +1,141 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.banner {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: solid 3px black;
+    border-radius: 15px;
+    width: 1000px;
+    height:1200px;
+    overflow: hidden;
+    text-align: center;
+    background: rgb(155,0,255);
+    background-image: linear-gradient(
+            180deg,
+            hsl(240deg 100% 20%) 0%,
+            hsl(289deg 100% 21%) 31%,
+            hsl(315deg 100% 27%) 46%,
+            hsl(329deg 100% 36%) 56%,
+            hsl(337deg 100% 43%) 64%,
+            hsl(357deg 91% 59%) 71%,
+            hsl(17deg 100% 59%) 78%,
+            hsl(34deg 100% 53%) 84%,
+            hsl(45deg 100% 50%) 91%,
+            hsl(55deg 100% 50%) 100%
+    );
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+}
+.banner-text {
+    font-size: 20px;
+    color: #fff;
+    letter-spacing: -1px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin: 10px 0;
+    animation: text_blur 5s ease-out infinite;
+}
+
+@keyframes text_blur {
+    0% {
+        text-shadow: none;
+    }
+
+    50% {
+        text-shadow:
+                0 0 1px #fff,
+                0 0 2px #fff,
+                0 0 5px #fff,
+                0 0 11px #00FFD5,
+                0 0 20px #00FFD5,
+                0 0 30px #00FFD5,
+                0 0 55px #00FFD5,
+                0 0 80px #00FFD5;
+    }
+
+    100% {
+        text-shadow: none;
+    }
+}
+
+.banner-subtext {
+    width: 11ch;
+    margin: auto;
+    color: white;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: cursor 3s step-end, printed_text 3s steps(11);
+}
+
+@keyframes cursor {
+    0% {
+        border-right: 3px solid white;
+    }
+
+    100% {
+        border-color: transparent;
+    }
+}
+
+@keyframes printed_text {
+    from {
+        width: 0;
+    }
+}
+
+.banner-image {
+    opacity: 0;
+    animation: slide-up 1s forwards;
+    width: 80%;
+    margin: auto;
+}
+
+.image1 {
+    animation-delay: 3s;
+}
+
+.image2 {
+    animation-delay: 2s;
+}
+
+.image3 {
+    animation-delay: 1s;
+}
+
+@keyframes slide-up {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+/* Для екранів ширше 768 пікселів */
+@media only screen and (min-width: 768px) {
+    .banner {
+        width: 160px;
+        height: 600px;
+    }
+}
+
+
+
+/* Для екранів менше 768 пікселів */
+@media only screen and (max-width: 768px) {
+    .banner {
+        width: 240px;
+        height: 400px;
+    }
+    .banner-image {
+        width: 70%;
+    }
+}
